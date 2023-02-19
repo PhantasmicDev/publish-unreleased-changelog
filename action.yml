@@ -1,14 +1,22 @@
-name: "Bash Action Template"
+name: "Publish Unreleased Changelog"
 author: "PhantasmicDev"
-description: "A template with the bare minimum to begin developing a custom GitHub action that runs a bash script."
+description: "A simple GitHub action that replaces the [Unreleased] heading with the new specified version and date."
 branding:
   icon: "file-text"
   color: "white"
 
 inputs:
-  my-input:
-    description: "Input Example"
+  version:
+    description: "The new version to replace the unreleased heading with."
+    required: true
+  changelog-path:
+    description: "The path to the changelog file."
     required: false
+    default: "CHANGELOG.md"
+  time-zone:
+    description: "The TZ database name for the target time zone, used to extract the date."
+    required: false
+    default: "Etc/UTC"
 
 runs:
   using: "composite"
