@@ -23,3 +23,7 @@ runs:
   steps:
     - run: $GITHUB_ACTION_PATH/run.sh
       shell: bash
+      env:
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_CHANGELOG_PATH: ${{ inputs.changelog-path }}
+        INPUT_TIME_ZONE: ${{ inputs.time-zone }}
