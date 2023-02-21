@@ -1,13 +1,13 @@
 name: "Publish Unreleased Changelog"
 author: "PhantasmicDev"
-description: "A simple GitHub action that replaces the [Unreleased] heading with the new specified version and date."
+description: "A simple GitHub action that replaces the [Unreleased] heading with the new specified release title and date."
 branding:
-  icon: "file-text"
-  color: "white"
+  icon: "tag"
+  color: "green"
 
 inputs:
-  version:
-    description: "The new version to replace the unreleased heading with."
+  release-title:
+    description: "The new release title to replace the unreleased heading with."
     required: true
   changelog-path:
     description: "The path to the changelog file."
@@ -24,6 +24,6 @@ runs:
     - run: $GITHUB_ACTION_PATH/run.sh
       shell: bash
       env:
-        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_RELEASE_TITLE: ${{ release-title }}
         INPUT_CHANGELOG_PATH: ${{ inputs.changelog-path }}
         INPUT_TIME_ZONE: ${{ inputs.time-zone }}
